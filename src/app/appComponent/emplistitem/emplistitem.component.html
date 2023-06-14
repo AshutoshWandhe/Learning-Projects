@@ -1,0 +1,40 @@
+<style>
+    .image{
+        height: 200px;
+        width: 200px;
+    }
+
+    .container{
+        width:400px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="shadow-lg p-3 mb-5 bg-white rounded ">
+                <div>
+                    <h4>{{empcomponent.name}}</h4>
+                </div>
+                <span class="align-middle">
+                    <img class="image" [src]="empcomponent.imagePath" alt="{{empcomponent.name}}">
+
+                </span>
+                <div>
+                    <h2>{{empcomponent.id}}</h2>
+                </div>
+                <div *ngIf="empcomponent.designation.length==0; else comments">
+                    <p>-</p>
+                </div>
+                <ng-template #comments>
+                    <h2>Designations</h2>
+                    <ul class = "list-group">
+                        <li class="list-group-item"  *ngFor="let comment of empcomponent.designation">{{comment}}</li>
+                    </ul>
+                </ng-template>
+
+                <div>{{empcomponent.address}}</div>
+            </div>
+        </div>
+    </div>
+</div>
