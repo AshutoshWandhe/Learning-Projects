@@ -1,0 +1,303 @@
+
+
+<form
+  [formGroup]="registerForm"
+  (ngSubmit)="onFormSubmit()"
+  class="border border-dark p-4 mt-3"
+>
+  <div class="row">
+    <div class="col text-left p-2 mb-3">
+      <span class="fs-2">Get Started</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <label for="firstname" class="form-label first-name">First Name</label>
+      <input
+        type="firstname"
+        class="form-control"
+        id="firstname"
+        title="First Name"
+        formControlName="firstname"
+        placeholder="Please enter your first name"
+      />
+
+
+
+      <div
+        class="form-text text-danger"
+        *ngIf="FirstName.errors?.['required'] && (FirstName.touched || FirstName.dirty)">
+        Please enter your first name
+      </div>
+
+
+      <div
+        class="form-text text-danger"
+        *ngIf="FirstName.errors?.['minlength'] && (FirstName.touched || FirstName.dirty)"
+      >
+        First name is too short
+      </div>
+      <div
+        class="form-text text-danger"
+        *ngIf="FirstName.errors?.['pattern'] && (FirstName.touched || FirstName.dirty)"
+      >
+        Name should start with Alphabet
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <label for="lastname" class="form-label last-name">Last Name</label>
+      <input
+        type="lastname"
+        class="form-control"
+        id="lastname"
+        title="Last Name"
+        formControlName="lastname"
+        placeholder="Please enter your last name"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mb-3">
+      <label for="emailAddress" class="form-label e-mail">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        title="Email"
+        formControlName="email"
+        placeholder="Please enter your email address"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="Email.errors?.['email'] && (Email.touched || Email.dirty)"
+      >
+        Enter email in valid format
+      </div>
+      <div
+        class="form-text text-danger"
+        *ngIf="Email.errors?.['required'] && (Email.touched || Email.dirty)"
+      >
+        Please enter your your email address
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mb-3">
+      <label for="phonenumber" class="form-label phone-number"
+        >Phone Number</label
+      >
+      <input
+        type="phonenumber"
+        class="form-control"
+        id="phonenumber"
+        title="Phone Number"
+        formControlName="phonenumber"
+        placeholder="Please enter your phone number"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="PhoneNumber.errors?.['required'] && (PhoneNumber.touched || PhoneNumber.dirty)"
+      >
+        Please enter your Phone number
+      </div>
+      <div
+        class="form-text text-danger"
+        *ngIf="PhoneNumber.errors?.['pattern'] && (PhoneNumber.touched || PhoneNumber.dirty)"
+      >
+        Phone Number should be only numericals
+      </div>
+      <div
+        class="form-text text-danger"
+        *ngIf="PhoneNumber.errors?.['minlength'] && (PhoneNumber.touched || PhoneNumber.dirty)"
+      >
+        Phone Number should have 10 characters
+      </div>
+      <div
+        class="form-text text-danger"
+        *ngIf="PhoneNumber.errors?.['maxlength'] && (PhoneNumber.touched || PhoneNumber.dirty)"
+      >
+        Phone Number should have 10 characters
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col text-left p-2 mb-4">
+      <span class="fs-2">Tell us about your company</span>
+    </div>
+  </div>
+
+  <div class="row row1 mb-5 pb-3 d-flex d-column flex-wrap mx-2">
+    <div
+      class="col checkBox ps-3 mb-3b mt-3 pt-3 d-flex d-row justify-content-between flex flex-wrap"
+    >
+      <label class="top devices top-dev">
+        Which devices are you interested in?</label
+      >
+
+      <div class="form-check form-check-inline Flex">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox1"
+          value="option1"
+          name="devices"
+          formControlName="devices"
+        />
+        <label class="form-check-label" for="inlineCheckbox1"
+          >Clover Flex</label
+        >
+      </div>
+
+      <div class="form-check form-check-inline Go">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox2"
+          value="option2"
+          formControlName="devices"
+        />
+        <label class="form-check-label" for="inlineCheckbox2">Clover Go</label>
+      </div>
+      <div class="form-check form-check-inline Station">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox3"
+          value="option3"
+          formControlName="devices"
+        />
+        <label class="form-check-label" for="inlineCheckbox3"
+          >Clover Station
+        </label>
+      </div>
+
+      <div class="form-check form-check-inline Mini">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox4"
+          value="option4"
+          formControlName="devices"
+        />
+        <label class="form-check-label" for="inlineCheckbox4"
+          >Clover Mini
+        </label>
+      </div>
+    </div>
+
+    <div
+      class="form-text text-danger"
+      *ngIf="Devices.errors?.['required'] && (Devices.touched || Devices.dirty)"
+    >
+      Please select the devices you are interested in
+    </div>
+  </div>
+
+  <div class="row row1 mb-4 pb-3 d-flex d-column flex-wrap mx-2">
+    <div
+      class="col radioButton ps-3 pt-3 d-flex d-row justify-content-between flex-wrap"
+    >
+      <label class="top solutions top-sol">
+        Choose which solutions/services you are interested in:</label
+      >
+
+      <div class="form-check form-check-inline Capitals">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="solutions"
+          id="inlineRadio1"
+          value="Clover Capitals"
+          formControlName="solutions"
+        />
+        <label class="form-check-label" for="inlineRadio1"
+          >Clover Capitals</label
+        >
+      </div>
+      <div class="form-check form-check-inline Deposits">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="solutions"
+          id="inlineRadio2"
+          value="Rapid Deposits"
+          formControlName="solutions"
+        />
+        <label class="form-check-label" for="inlineRadio2"
+          >Rapid Deposits</label
+        >
+      </div>
+      <div class="form-check form-check-inline Cards">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="solutions"
+          id="inlineRadio3"
+          value="Clover Gift Cards"
+          formControlName="solutions"
+        />
+        <label class="form-check-label" for="inlineRadio3"
+          >Clover Gift Cards</label
+        >
+      </div>
+      <div class="form-check form-check-inline Terminals">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="solutions"
+          id="inlineRadio4"
+          value="Virtual Terminals"
+          formControlName="solutions"
+        />
+        <label class="form-check-label" for="inlineRadio4"
+          >Virtual Terminals</label
+        >
+      </div>
+      <div class="form-check form-check-inline Apps">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="solutions"
+          id="inlineRadio5"
+          value="Clover Apps"
+          formControlName="solutions"
+        />
+        <label class="form-check-label" for="inlineRadio5">Clover Apps</label>
+      </div>
+    </div>
+    <div
+      class="form-text text-danger"
+      *ngIf="this.registerForm.get('solutions').errors?.['required'] && (Solutions.touched || Solutions.dirty)"
+    >
+      Please select solution you are interested in
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mb-3">
+      <label for="comments" class="form-label">Comments or Questions</label>
+      <input
+        type="comments"
+        class="form-control mb-6 comments"
+        id="comments"
+        title="comments"
+        formControlName="comments"
+        placeholder="Comments"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 offset-8 text-center mt-3 mb-3 register">
+      <button routerLinkActive="active" type="submit" class="btn" >
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
+
+
